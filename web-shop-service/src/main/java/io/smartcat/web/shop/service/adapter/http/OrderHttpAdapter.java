@@ -39,7 +39,7 @@ public class OrderHttpAdapter {
     }
 
     @DeleteMapping(path = "cancel")
-    public ResponseEntity<?> clearShoppingCart(@PathVariable final String itemId) {
+    public ResponseEntity<?> clearShoppingCart() {
         return userService.findCurrentUser().map(user -> {
             final String userId = user.getId();
             cartService.clear(userId);
