@@ -1,0 +1,53 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.2.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'com.commercehub.gradle.plugin.avro' version '0.9.1'
+	id 'com.github.imflog.kafka-schema-registry-gradle-plugin' version '0.7.0'
+}
+
+group = 'io.smartcat.web.shop.service'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.11'
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+	jcenter()
+	maven {
+		url 'http://packages.confluent.io/maven/'
+	}
+}
+
+dependencies {
+	compile('io.smartcat.kafka.commons:kafka-commons:0.2.0')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.apache.kafka:kafka-clients:2.2.0')
+	compile('org.apache.avro:avro:1.9.1')
+}
+
+avro {
+	fieldVisibility = 'PRIVATE'
+}
+
+task generateAvro(type: com.commercehub.gradle.plugin.avro.GenerateAvroJavaTask, dependsOn: 'downloadSchemasTask') {
+	group = "Source Generation"
+	description = "Generates Java classes from avro schema files to temp directory."
+	source('src/main/resources/avro')
+	outputDir = file('generated/avro')
+}
+
+task removeGeneratedAvro(type: Delete) {
+	group = "Source Generation"
+	description = "Removes temp dir used for code generation."
+	delete 'generated/avro'
+	delete 'generated'
+}
+
+task copyGeneratedAvro(type: Copy, dependsOn: 'generateAvro') {
+	group = "Source Generation"
+	description = "Copies generated Java classes from temp dir src/main/java."
+	from 'generated/avro'
+	into 'src/main/java'
+	finalizedBy removeGeneratedAvro
+}
