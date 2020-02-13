@@ -1,0 +1,21 @@
+# Gradle files
+**/.gradle
+**/build
+
+# Intellij Idea files
+**/out
+**/*.iml
+**/.idea
+
+# Eclipse files
+**/.project
+**/classpath
+**/bin
+**/.settings
+
+# General log files
+**/*.log
+
+# General temp folders
+**/tmp
+**/temp
