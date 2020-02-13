@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static io.smartcat.avro.events.item.ItemEventType.ADD_ITEM;
+import static io.smartcat.avro.events.item.ItemEventType.REMOVE_ITEM;
 
 @Service
 public class CartService {
@@ -35,7 +36,7 @@ public class CartService {
 
     public void removeFromCartAndPublish(final String userId, final Item item) {
         cartRepository.remove(userId, item.getId());
-        itemEvenPublisher.publishItemEvent(mapper.itemToItemEvent(userId, item, ADD_ITEM));
+        itemEvenPublisher.publishItemEvent(mapper.itemToItemEvent(userId, item, REMOVE_ITEM));
     }
 
     public void clear(final String userId) {
