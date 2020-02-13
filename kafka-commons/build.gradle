@@ -21,7 +21,6 @@ dependencies {
     compile('io.confluent:kafka-avro-serializer:5.2.2')
     compile('org.apache.avro:avro:1.8.2')
     compile('com.google.guava:guava:28.2-jre')
-    testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
 publishing {

@@ -4,6 +4,4 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-
 rootProject.name = 'kafka-commons'
-
