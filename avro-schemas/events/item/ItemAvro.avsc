@@ -1,33 +1,33 @@
 {
-  "namespace": "io.smartcat.avro.events.item",
-  "type": "record",
-  "name": "ItemAvro",
-  "fields": [
+  "namespace":"io.smartcat.avro.events.item",
+  "type":"record",
+  "name":"ItemAvro",
+  "fields":[
     {
-      "name": "itemId",
-      "type": {
-        "type": "string",
-        "avro.java.string": "String"
+      "name":"itemId",
+      "type":{
+        "type":"string",
+        "avro.java.string":"String"
       }
     },
     {
-      "name": "category",
-      "type": {
-        "type": "string",
-        "avro.java.string": "String"
+      "name":"category",
+      "type":{
+        "type":"string",
+        "avro.java.string":"String"
       }
     },
     {
-      "name": "name",
-      "type": {
-        "type": "string",
-        "avro.java.string": "String"
+      "name":"name",
+      "type":{
+        "type":"string",
+        "avro.java.string":"String"
       }
     },
     {
-      "name": "price",
-      "type": {
-        "type": "double"
+      "name":"price",
+      "type":{
+        "type":"double"
       }
     }
   ]

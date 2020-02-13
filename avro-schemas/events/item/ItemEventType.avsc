@@ -1,9 +1,9 @@
 {
-  "namespace": "io.smartcat.avro.events.item",
-  "type": "enum",
-  "name": "ItemEventType",
-  "symbols": [
+  "namespace":"io.smartcat.avro.events.item",
+  "type":"enum",
+  "name":"ItemEventType",
+  "symbols":[
     "ADD_ITEM",
     "REMOVE_ITEM"
-   ]
+  ]
 }

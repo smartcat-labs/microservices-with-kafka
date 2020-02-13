@@ -1,9 +1,9 @@
 {
-  "namespace": "io.smartcat.avro.events.order",
-  "type": "enum",
-  "name": "OrderEventType",
-  "symbols": [
-      "ADD_ORDER",
-      "CLEAR_ORDER"
-   ]
+  "namespace":"io.smartcat.avro.events.order",
+  "type":"enum",
+  "name":"OrderEventType",
+  "symbols":[
+    "ADD_ORDER",
+    "CLEAR_ORDER"
+  ]
 }
