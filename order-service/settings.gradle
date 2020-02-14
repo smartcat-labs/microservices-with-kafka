@@ -1,0 +1,10 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+        maven{
+            url 'http://packages.confluent.io/maven/'
+        }
+    }
+}
+rootProject.name = 'order-service'

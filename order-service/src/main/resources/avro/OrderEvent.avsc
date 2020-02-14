@@ -1,0 +1,22 @@
+{
+  "namespace":"io.smartcat.avro.events.order",
+  "type":"record",
+  "name":"OrderEvent",
+  "fields":[
+    {
+      "name":"eventType",
+      "type":"io.smartcat.avro.events.order.OrderEventType"
+    },
+    {
+      "name":"timestamp",
+      "type":"long"
+    },
+    {
+      "name":"userId",
+      "type":{
+        "type":"string",
+        "avro.java.string":"String"
+      }
+    }
+  ]
+}
