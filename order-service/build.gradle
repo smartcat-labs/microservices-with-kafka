@@ -53,3 +53,5 @@ task copyGeneratedAvro(type: Copy, dependsOn: 'generateAvro') {
 	into 'src/main/java'
 	finalizedBy removeGeneratedAvro
 }
+
+compileJava.dependsOn copyGeneratedAvro

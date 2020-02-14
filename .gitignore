@@ -19,3 +19,7 @@
 # General temp folders
 **/tmp
 **/temp
+
+# Avro Schema generated Java classes
+**/generated
+**/src/main/java/io/smartcat/avro/events/
