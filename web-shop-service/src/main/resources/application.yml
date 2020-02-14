@@ -1,0 +1,18 @@
+server:
+  port: 8080
+  servlet:
+    contextPath: /web-shop
+
+kafka:
+  producers:
+    item:
+      properties:
+        bootstrap.servers: localhost:9092
+        schema.registry.url: http://localhost:8081
+    order:
+      properties:
+        bootstrap.servers: localhost:9092
+        schema.registry.url: http://localhost:8081
+  channels:
+    itemChannel: item
+    orderChannel: order
