@@ -1,0 +1,26 @@
+{
+  "namespace":"io.smartcat.avro.events.item",
+  "type":"record",
+  "name":"ItemEvent",
+  "fields":[
+    {
+      "name":"eventType",
+      "type":"io.smartcat.avro.events.item.ItemEventType"
+    },
+    {
+      "name":"timestamp",
+      "type":"long"
+    },
+    {
+      "name":"userId",
+      "type":{
+        "type":"string",
+        "avro.java.string":"String"
+      }
+    },
+    {
+      "name":"itemAvro",
+      "type":"io.smartcat.avro.events.item.ItemAvro"
+    }
+  ]
+}
