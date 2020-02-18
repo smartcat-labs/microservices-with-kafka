@@ -1,4 +1,4 @@
-package io.smartcat.order.service.adapter.persistence.item.model;
+package io.smartcat.order.service.domain.item;
 
 public class Item {
 

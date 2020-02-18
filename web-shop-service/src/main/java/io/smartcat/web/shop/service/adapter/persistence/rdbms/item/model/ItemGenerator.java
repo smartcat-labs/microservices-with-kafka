@@ -1,4 +1,6 @@
-package io.smartcat.order.service.adapter.persistence.item.model;
+package io.smartcat.web.shop.service.adapter.persistence.rdbms.item.model;
+
+import io.smartcat.web.shop.service.domain.item.Item;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,6 +10,9 @@ import java.util.Map;
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.toMap;
 
+/**
+ * Class responsible for generating {@link Item} objects.
+ */
 public abstract class ItemGenerator {
 
     public static Map<String, Item> initializeItemRepository() {

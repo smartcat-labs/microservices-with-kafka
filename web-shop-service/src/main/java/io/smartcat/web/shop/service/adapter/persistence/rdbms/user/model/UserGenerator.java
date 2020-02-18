@@ -1,4 +1,4 @@
-package io.smartcat.web.shop.service.adapter.persistence.user.model;
+package io.smartcat.web.shop.service.adapter.persistence.rdbms.user.model;
 
 import io.smartcat.web.shop.service.domain.user.User;
 

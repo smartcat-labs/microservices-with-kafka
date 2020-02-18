@@ -1,10 +1,5 @@
 package io.smartcat.order.service;
 
-import io.confluent.kafka.serializers.AvroSchemaUtils;
-import io.confluent.kafka.serializers.KafkaAvroDeserializer;
-import io.confluent.kafka.serializers.KafkaAvroSerializer;
-import io.confluent.kafka.streams.serdes.avro.GenericAvroDeserializer;
-import io.confluent.kafka.streams.serdes.avro.GenericAvroSerde;
 import io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde;
 import io.smartcat.avro.events.item.ItemAvro;
 import io.smartcat.avro.events.item.ItemEvent;
@@ -14,9 +9,6 @@ import io.smartcat.avro.events.order.OrderEventType;
 import io.smartcat.order.service.adapter.kafka.consumer.item.ItemEventConsumer;
 import io.smartcat.order.service.adapter.kafka.producer.item.ItemEventProducer;
 import io.smartcat.order.service.adapter.kafka.producer.order.OrderEventProducer;
-import io.smartcat.order.service.adapter.persistence.item.model.Item;
-import org.apache.avro.generic.GenericRecord;
-import org.apache.avro.specific.SpecificRecord;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.Serde;
 import org.apache.kafka.common.serialization.Serdes;
@@ -49,18 +41,6 @@ public class Application {
 			final OrderEventProducer orderEventProducer
 	) {
 		return args -> {
-/*			for (int i = 0; i < 5; i++) {
-				final String id = "" + i;
-				final ItemEvent itemEvent = new ItemEvent(
-						ItemEventType.ADD_ITEM,
-						System.currentTimeMillis(),
-						"user1",
-						new ItemAvro(id, "category_" + i, "name_" + i, 10d)
-				);
-				itemEventProducer.producer().send(new ProducerRecord<>("item", "user1", itemEvent));
-			}
-			final OrderEvent orderEvent = new OrderEvent(OrderEventType.ADD_ORDER, System.currentTimeMillis(), "user1");
-			orderEventProducer.producer().send(new ProducerRecord<>("order", "user1", orderEvent));*/
 			Properties props = new Properties();
 			props.put(StreamsConfig.APPLICATION_ID_CONFIG, "item.id2");
 			props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
@@ -106,5 +86,23 @@ public class Application {
 			}
 			System.exit(0);
 		};
+	}
+
+	public void produceTestData(
+			final ItemEventProducer itemEventProducer,
+			final OrderEventProducer orderEventProducer
+	) {
+		for (int i = 0; i < 5; i++) {
+			final String id = "" + i;
+			final ItemEvent itemEvent = new ItemEvent(
+					ItemEventType.ADD_ITEM,
+					System.currentTimeMillis(),
+					"user1",
+					new ItemAvro(id, "category_" + i, "name_" + i, 10d)
+			);
+			itemEventProducer.producer().send(new ProducerRecord<>("item", "user1", itemEvent));
+		}
+		final OrderEvent orderEvent = new OrderEvent(OrderEventType.ADD_ORDER, System.currentTimeMillis(), "user1");
+		orderEventProducer.producer().send(new ProducerRecord<>("order", "user1", orderEvent));
 	}
 }

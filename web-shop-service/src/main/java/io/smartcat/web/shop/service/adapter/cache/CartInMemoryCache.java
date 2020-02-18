@@ -27,7 +27,7 @@ public class CartInMemoryCache implements CartRepository {
             Optional.ofNullable(shoppingCart.get(userId)).ifPresentOrElse(
                     userItems -> {
                         final List<Item> items = new ArrayList<>(userItems);
-
+                        items.add(item);
                         shoppingCart.put(userId, items);
                     },
                     () -> shoppingCart.put(userId, Collections.singletonList(item))
@@ -43,7 +43,7 @@ public class CartInMemoryCache implements CartRepository {
         try {
             Optional.ofNullable(shoppingCart.get(userId))
                     .ifPresent(items -> {
-                        List<Item> newItems = items.stream()
+                        final List<Item> newItems = items.stream()
                                 .filter(item -> !item.getId().equals(itemId)).collect(toList());
                         shoppingCart.put(userId, newItems);
                     });

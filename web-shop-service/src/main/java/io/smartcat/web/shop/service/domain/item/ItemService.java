@@ -38,8 +38,8 @@ public class ItemService {
         itemRepository.remove(id);
     }
 
-    public void update(final String itemId, final Item itemRequest) {
-        itemRequest.setId(itemId);
-        itemRepository.save(itemRequest);
+    public void update(final String itemId, final Item item) {
+        item.setId(itemId);
+        itemRepository.save(item);
     }
 }

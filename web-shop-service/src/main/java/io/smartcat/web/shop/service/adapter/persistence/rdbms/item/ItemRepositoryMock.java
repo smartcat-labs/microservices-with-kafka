@@ -1,6 +1,6 @@
-package io.smartcat.web.shop.service.adapter.persistence.item;
+package io.smartcat.web.shop.service.adapter.persistence.rdbms.item;
 
-import io.smartcat.web.shop.service.adapter.persistence.item.model.ItemGenerator;
+import io.smartcat.web.shop.service.adapter.persistence.rdbms.item.model.ItemGenerator;
 import io.smartcat.web.shop.service.domain.item.Item;
 import io.smartcat.web.shop.service.domain.item.ItemRepository;
 import org.springframework.stereotype.Repository;

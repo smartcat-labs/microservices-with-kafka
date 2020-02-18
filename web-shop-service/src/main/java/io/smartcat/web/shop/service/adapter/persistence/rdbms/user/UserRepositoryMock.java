@@ -1,4 +1,4 @@
-package io.smartcat.web.shop.service.adapter.persistence.user;
+package io.smartcat.web.shop.service.adapter.persistence.rdbms.user;
 
 import io.smartcat.web.shop.service.domain.user.User;
 import io.smartcat.web.shop.service.domain.user.UserRepository;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Map;
 import java.util.Optional;
 
-import static io.smartcat.web.shop.service.adapter.persistence.user.model.UserGenerator.initializeUserRepository;
+import static io.smartcat.web.shop.service.adapter.persistence.rdbms.user.model.UserGenerator.initializeUserRepository;
 
 /**
  * Mocked User Repository implemented for the sake of simplicity.

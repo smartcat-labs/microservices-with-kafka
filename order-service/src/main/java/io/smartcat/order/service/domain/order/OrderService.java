@@ -1,9 +1,7 @@
-package io.smartcat.order.service.domain.service;
+package io.smartcat.order.service.domain.order;
 
 
-import io.smartcat.order.service.adapter.persistence.item.model.Item;
-import io.smartcat.order.service.adapter.persistence.order.model.Order;
-import io.smartcat.order.service.domain.repository.OrderRepository;
+import io.smartcat.order.service.domain.item.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
